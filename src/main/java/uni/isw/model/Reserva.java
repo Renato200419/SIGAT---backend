@@ -36,4 +36,8 @@ public class Reserva {
 
     @JsonProperty("Estado")
     private String Estado;
+    
+    public Long getClienteID() {
+        return Reserva_ID;
+    }
 }

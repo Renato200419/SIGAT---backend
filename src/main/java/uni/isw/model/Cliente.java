@@ -34,4 +34,8 @@ public class Cliente {
 
     @JsonProperty("Cliente_Correo")
     private String Cliente_Correo;
+    // Método getter manual para Cliente_ID
+    public Long getClienteID() {
+        return Cliente_ID;
+    }
 }
