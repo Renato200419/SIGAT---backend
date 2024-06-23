@@ -35,8 +35,5 @@ public class Consulta {
 
     @JsonProperty("Fecha_Consulta")
     private Date Fecha_Consulta;
-    
-    public Long getClienteID() {
-        return Consulta_ID;
-    }
+
 }

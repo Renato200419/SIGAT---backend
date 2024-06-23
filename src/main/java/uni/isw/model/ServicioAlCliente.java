@@ -22,9 +22,5 @@ public class ServicioAlCliente {
 
     @JsonProperty("Descripcion")
     private String Descripcion;
-    
-    
-    public Long getClienteID() {
-        return Servicio_al_Cliente_ID;
-    }
+
 }

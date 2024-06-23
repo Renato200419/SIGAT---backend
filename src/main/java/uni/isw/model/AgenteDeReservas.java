@@ -25,8 +25,4 @@ public class AgenteDeReservas {
 
     @JsonProperty("ApeMaterno")
     private String ApeMaterno;
-
-    public Long getClienteID() {
-        return Agente_de_Reservas_ID;
-    }
 }
