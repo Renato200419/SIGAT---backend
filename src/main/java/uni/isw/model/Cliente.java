@@ -28,9 +28,8 @@ public class Cliente {
     @JsonProperty("Cliente_ApeMaterno")
     private String Cliente_ApeMaterno;
     
-    /*
     @JsonProperty("Cliente_Telefono")
-    private String Cliente_Telefono;*/
+    private String Cliente_Telefono;
 
     @JsonProperty("Cliente_Correo")
     private String Cliente_Correo;
