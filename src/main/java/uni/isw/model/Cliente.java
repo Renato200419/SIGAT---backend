@@ -29,7 +29,7 @@ public class Cliente {
     private String Cliente_ApeMaterno;
     
     @JsonProperty("Cliente_Telefono")
-    private Integer Cliente_Telefono;
+    private String Cliente_Telefono;
 
     @JsonProperty("Cliente_Correo")
     private String Cliente_Correo;
