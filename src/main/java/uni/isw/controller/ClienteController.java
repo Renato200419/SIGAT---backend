@@ -41,7 +41,7 @@ public class ClienteController {
     public ResponseEntity<Cliente> getCliente(@RequestBody Optional<Cliente> cliente) {
             logger.info(">buscar" +  cliente.toString());
             try {
-                    cliente = clienteService.getCliente(cliente.get().getClienteID());                    
+                    cliente = clienteService.getCliente(cliente.get().getCliente_ID());                    
                     
             } catch (Exception e) {
                     logger.error("Unexpected Exception caught.", e);
