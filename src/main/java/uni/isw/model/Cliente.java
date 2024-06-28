@@ -30,4 +30,15 @@ public class Cliente {
 
     @JsonProperty("Cliente_Correo")
     private String Cliente_Correo;
+    
+    //Constructor por defecto
+    public Cliente() {}
+    // Constructor con parámetros
+    public Cliente(Long Cliente_ID, String Cliente_Nombre, String Cliente_ApePaterno, String Cliente_ApeMaterno, String Cliente_Correo) {
+        this.Cliente_ID = Cliente_ID;
+        this.Cliente_Nombre = Cliente_Nombre;
+        this.Cliente_ApePaterno = Cliente_ApePaterno;
+        this.Cliente_ApeMaterno = Cliente_ApeMaterno;
+        this.Cliente_Correo = Cliente_Correo;
+    }
 }

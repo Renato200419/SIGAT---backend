@@ -39,42 +39,44 @@ public class ClienteController {
 
     @RequestMapping(value = "/buscar", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Cliente> getCliente(@RequestBody Optional<Cliente> cliente) {
-            logger.info(">buscar" +  cliente.toString());
+            logger.info("> buscar " + cliente.toString());
+            Optional<Cliente> clienteEncontrado;
             try {
-                    cliente = clienteService.getCliente(cliente.get().getCliente_ID());                    
-                    
+                    clienteEncontrado = clienteService.getCliente(cliente.get().getCliente_ID());                    
             } catch (Exception e) {
                     logger.error("Unexpected Exception caught.", e);
                     return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            logger.info(">buscar" +  cliente.toString());
-            return new ResponseEntity<>(cliente.get(), HttpStatus.OK);
+            logger.info("> buscar " + clienteEncontrado.toString());
+            return new ResponseEntity<>(clienteEncontrado.orElse(null), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/insertar", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Cliente> agregar(@RequestBody Cliente cliente) {
         logger.info("> agregar: " + cliente.toString());
+        Cliente clienteGuardado;
         try {
-            clienteService.saveOrUpdate(cliente);
+            clienteGuardado = clienteService.saveOrUpdate(cliente);
         } catch (Exception e) {
-            logger.error("Unexpected Exception caught. "+ e.getMessage());
+            logger.error("Unexpected Exception caught. " + e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         logger.info("> agregar: " + cliente.toString());
-        return new ResponseEntity<>(cliente, HttpStatus.CREATED);
+        return new ResponseEntity<>(clienteGuardado, HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/actualizar", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Cliente> actualizar(@RequestBody Cliente cliente) {
         logger.info("> actualizar: " + cliente.toString());
+        Cliente clienteActualizado;
         try {
-            clienteService.saveOrUpdate(cliente);
+            clienteActualizado = clienteService.saveOrUpdate(cliente);
         } catch (Exception e) {
             logger.error("Unexpected Exception caught. " + e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         logger.info("> actualizar: " + cliente.toString());
-        return new ResponseEntity<>(cliente, HttpStatus.OK);
+        return new ResponseEntity<>(clienteActualizado, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -91,7 +93,7 @@ public class ClienteController {
                 return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
             }
         } catch (Exception e) {
-            logger.error("Unexpected Exception caught. "+ e.getMessage());
+            logger.error("Unexpected Exception caught. " + e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

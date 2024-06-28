@@ -20,8 +20,8 @@ public class ClienteService {
         return clienteRepository.findById(id);
     }
 
-    public void saveOrUpdate(Cliente cliente){
-        clienteRepository.save(cliente);
+    public Cliente saveOrUpdate(Cliente cliente){
+        return clienteRepository.save(cliente);
     }
 
     public void delete(Long id){
